@@ -1,19 +1,22 @@
 {
-  "name": "three-seed",
-  "version": "0.3.2",
-  "description": "Three.js starter project boilerplate bundled with webpack",
+  "name": "covid19-visualization",
+  "repo": "COVID-19-Visualization",
+  "version": "1.0.0",
+  "description": "ThreeJS project to visualize the spread of COVID-19",
   "keywords": [
     "webgl",
     "boilerplate",
     "three.js",
-    "es6",
-    "webpack"
+    "coronavirus",
+    "covid",
+    "covid19"
   ],
   "scripts": {
     "start": "webpack-dev-server --mode development",
     "prebuild": "rimraf ./build && mkdir ./build",
-    "build": "webpack --mode production",
-    "format": "prettier --write '*.js' 'src/**/*.js'"
+    "build": "npm run prebuild && webpack --mode production",
+    "format": "prettier --write '*.js' 'src/**/*.js'",
+    "deploy": "npm run build && gh-pages -d build"
   },
   "dependencies": {
     "dat.gui": "^0.7.7",
@@ -26,11 +29,12 @@
     "@babel/preset-env": "^7.9.5",
     "babel-loader": "^8.1.0",
     "file-loader": "^6.0.0",
+    "gh-pages": "^2.2.0",
     "html-webpack-plugin": "^4.2.0",
+    "prettier": "^2.0.4",
     "raw-loader": "^4.0.1",
     "rimraf": "^3.0.2",
     "webpack": "^4.43.0",
-    "prettier": "^2.0.4",
     "webpack-dev-server": "^3.10.3"
   },
   "engines": {

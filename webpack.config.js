@@ -4,10 +4,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const buildPath = './build/';
 
 module.exports = {
-    entry: ['./src/entry.js'],
+    entry: ['./src/app.js'],
     output: {
         path: path.join(__dirname, buildPath),
         filename: '[name].[hash].js',
+        publicPath: `/${pkg.repo}/`
     },
     target: 'web',
     devtool: 'source-map',
@@ -40,5 +41,5 @@ module.exports = {
             },
         ],
     },
-    plugins: [new HtmlWebpackPlugin({ title: 'three-seed project' })],
+    plugins: [new HtmlWebpackPlugin({ title: 'Covid-19 Visualization', favicon: 'src/favicon.ico' })],
 };
