@@ -560,6 +560,11 @@ export default class BarGraph extends Group {
     }
 
     changeDay() {
+        // Corner case
+        if (this.settings['Day'] > this.numDays - 1) {
+            return;
+        }
+
         const targets = {};
         const maxDays = this.numDays;
         for (let i = 0; i < maxDays; i++) {
@@ -587,8 +592,9 @@ export default class BarGraph extends Group {
             if (this.counter % 30 === 0) {
                 this.settings['Day'] += 1;
                 this.counter = 0;
-                if (this.settings['Day'] === this.numDays - 1) {
+                if (this.settings['Day'] > this.numDays - 1) {
                     this.animating = false;
+                    this.settings['Day'] = this.numDays - 1;
                 }
                 this.changeDay();
             }
